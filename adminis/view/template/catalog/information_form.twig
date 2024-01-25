@@ -68,6 +68,14 @@
                         <textarea name="information_description[{{ language.language_id }}][meta_keyword]" rows="5" placeholder="{{ entry_meta_keyword }}" id="input-meta-keyword-{{ language.language_id }}" class="form-control">{{ information_description[language.language_id] ? information_description[language.language_id].meta_keyword }}</textarea>
                       </div>
                     </div>
+                    <!--Начало задания 3-->
+                    <div class="row mb-3">
+                      <label for="input-test_field-{{ language.language_id }}" class="col-sm-2 col-form-label">{{ entry_test_field }}</label>
+                      <div class="col-sm-10">
+                        <input type="text" name="information_description[{{ language.language_id }}][test_field]" value="{{ information_description[language.language_id] ? information_description[language.language_id].test_field }}" placeholder="{{ entry_test_field }}" id="input-test_field-{{ language.language_id }}" class="form-control"/>
+                      </div>
+                    </div>
+                    <!--Конец задания 3-->
                   </div>
                 {% endfor %}
               </div>
