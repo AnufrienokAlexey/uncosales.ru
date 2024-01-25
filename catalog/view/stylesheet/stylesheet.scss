@@ -287,10 +287,13 @@ footer a {
 /* menu */
 #menu {
   background-color: #229ac8;
-  background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
+  //background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
+  background-image: linear-gradient(to bottom, #83b81d, #83b81d);
   background-repeat: repeat-x;
-  border: 1px solid #1f90bb;
-  border-color: #1f90bb #1f90bb #145e7a;
+  //border: 1px solid #1f90bb;
+  border: 1px solid #83b81d;
+  //border-color: #1f90bb #1f90bb #145e7a;
+  border-color: #83b81d;
   min-height: 40px;
   border-radius: 4px;
 
@@ -852,4 +855,10 @@ footer {
 #cookie div {
   font-size: 16px;
   color: #FFFFFF;
+}
+
+.js-basket-block {
+  svg {
+    fill: #FFFFFF;
+  }
 }
