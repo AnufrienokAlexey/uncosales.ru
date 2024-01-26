@@ -27,7 +27,6 @@ $_['entry_bottom']            = 'Bottom';
 $_['entry_status']            = 'Status';
 $_['entry_sort_order']        = 'Sort Order';
 $_['entry_layout']            = 'Layout Override';
-$_['entry_test_field']        = 'Test Field'; //Задание 3
 
 // Help
 $_['help_bottom']             = 'Display in the bottom footer.';
@@ -46,3 +45,7 @@ $_['error_checkout']          = 'Warning: This information page cannot be delete
 $_['error_affiliate']         = 'Warning: This information page cannot be deleted as it is currently assigned as the store affiliate terms!';
 $_['error_return']            = 'Warning: This information page cannot be deleted as it is currently assigned as the store return terms!';
 $_['error_store']             = 'Warning: This information page cannot be deleted as it is currently used by %s stores!';
+
+//Задание 3 - в продакшене вынести выше в группы Entry и Error
+$_['entry_test_field']        = 'Test Field';
+$_['error_test_field']        = 'Information Test Field must be less than 5 characters!';

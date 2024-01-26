@@ -313,6 +313,11 @@ class Information extends \Opencart\System\Engine\Controller {
 			if ((oc_strlen(trim($value['meta_title'])) < 1) || (oc_strlen($value['meta_title']) > 255)) {
 				$json['error']['meta_title_' . $language_id] = $this->language->get('error_meta_title');
 			}
+
+            //Добавляем ошибку если значение поля больше 4 символов, которая высветится в поле div ниже поля ввода
+            if (oc_strlen($value['test_field']) > 4) {
+                $json['error']['test_field_' . $language_id] = $this->language->get('error_test_field');
+            }
 		}
 
 		if ($this->request->post['information_seo_url']) {

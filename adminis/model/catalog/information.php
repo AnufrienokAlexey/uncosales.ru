@@ -16,8 +16,12 @@ class Information extends \Opencart\System\Engine\Model {
 
 		$information_id = $this->db->getLastId();
 
+        //Задание 3 - предварительно добавляем в БД поле test_field следующим запросом:
+        //ALTER TABLE `oc_information_description` ADD `test_field` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL AFTER `meta_keyword`
+
+        //в конце добавляем данные в поле test_field
 		foreach ($data['information_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO `" . DB_PREFIX . "information_description` SET `information_id` = '" . (int)$information_id . "', `language_id` = '" . (int)$language_id . "', `title` = '" . $this->db->escape($value['title']) . "', `description` = '" . $this->db->escape($value['description']) . "', `meta_title` = '" . $this->db->escape($value['meta_title']) . "', `meta_description` = '" . $this->db->escape($value['meta_description']) . "', `meta_keyword` = '" . $this->db->escape($value['meta_keyword']) . "'");
+			$this->db->query("INSERT INTO `" . DB_PREFIX . "information_description` SET `information_id` = '" . (int)$information_id . "', `language_id` = '" . (int)$language_id . "', `title` = '" . $this->db->escape($value['title']) . "', `description` = '" . $this->db->escape($value['description']) . "', `meta_title` = '" . $this->db->escape($value['meta_title']) . "', `meta_description` = '" . $this->db->escape($value['meta_description']) . "', `meta_keyword` = '" . $this->db->escape($value['meta_keyword']) . "', `test_field` = '" . $this->db->escape($value['test_field']) . "'");
 		}
 
 		if (isset($data['information_store'])) {
@@ -57,8 +61,9 @@ class Information extends \Opencart\System\Engine\Model {
 
 		$this->db->query("DELETE FROM `" . DB_PREFIX . "information_description` WHERE `information_id` = '" . (int)$information_id . "'");
 
+        //Задание 3 - когда нажимаем редактировать
 		foreach ($data['information_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO `" . DB_PREFIX . "information_description` SET `information_id` = '" . (int)$information_id . "', `language_id` = '" . (int)$language_id . "', `title` = '" . $this->db->escape($value['title']) . "', `description` = '" . $this->db->escape($value['description']) . "', `meta_title` = '" . $this->db->escape($value['meta_title']) . "', `meta_description` = '" . $this->db->escape($value['meta_description']) . "', `meta_keyword` = '" . $this->db->escape($value['meta_keyword']) . "'");
+			$this->db->query("INSERT INTO `" . DB_PREFIX . "information_description` SET `information_id` = '" . (int)$information_id . "', `language_id` = '" . (int)$language_id . "', `title` = '" . $this->db->escape($value['title']) . "', `description` = '" . $this->db->escape($value['description']) . "', `meta_title` = '" . $this->db->escape($value['meta_title']) . "', `meta_description` = '" . $this->db->escape($value['meta_description']) . "', `meta_keyword` = '" . $this->db->escape($value['meta_keyword']) . "', `test_field` = '" . $this->db->escape($value['test_field']) . "'");
 		}
 
 		$this->db->query("DELETE FROM `" . DB_PREFIX . "information_to_store` WHERE `information_id` = '" . (int)$information_id . "'");
@@ -182,7 +187,9 @@ class Information extends \Opencart\System\Engine\Model {
 				'description'      => $result['description'],
 				'meta_title'       => $result['meta_title'],
 				'meta_description' => $result['meta_description'],
-				'meta_keyword'     => $result['meta_keyword']
+				'meta_keyword'     => $result['meta_keyword'],
+                //Задание 3
+                'test_field'       => $result['test_field']
 			];
 		}
 
